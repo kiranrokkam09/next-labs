@@ -56,7 +56,7 @@ echo """server {
     location / {
         proxy_pass $application_port;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
+        proxy_set_header Host $host;
         proxy_redirect off;
         uwsgi_pass_header HTTP_AUTHORIZATION;
         uwsgi_pass_request_headers on;

@@ -1,15 +1,22 @@
 "use strict";
 
 // All Urls
-const url = "http://127.0.0.1:8000";
+const url = "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com";
 const API_TOKEN = sessionStorage.getItem("token");
-const getapps_url = "http://127.0.0.1:8000/next/getapps";
-const createapp_url = "http://127.0.0.1:8000/next/createapp";
-const signup_url = "http://127.0.0.1:8000/next/signup";
-const login_url = "http://127.0.0.1:8000/next/login";
-const points_url = "http://127.0.0.1:8000/next/points";
-const tasks_url = "http://127.0.0.1:8000/next/tasks";
-const assignapp_url = "http://127.0.0.1:8000/next/assignapp";
+const getapps_url =
+  "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/next/getapps";
+const createapp_url =
+  "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/next/createapp";
+const signup_url =
+  "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/next/signup";
+const login_url =
+  "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/next/login";
+const points_url =
+  "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/next/points";
+const tasks_url =
+  "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/next/tasks";
+const assignapp_url =
+  "http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/next/assignapp";
 
 // Post Request for signup
 const signup = async (formdata) => {
