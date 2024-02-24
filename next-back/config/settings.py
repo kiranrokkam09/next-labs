@@ -149,9 +149,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
-    "https://next-labs-chi.vercel.app",
+    "http://next-front.s3-website.ap-south-1.amazonaws.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://next-labs-chi.vercel.app",
+    "http://next-front.s3-website.ap-south-1.amazonaws.com",
 ]
