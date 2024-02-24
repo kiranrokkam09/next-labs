@@ -1,4 +1,4 @@
 .env
 venv/
 _pycache_/
-db.sqlite3
+./db.sqlite3
