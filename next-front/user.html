@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            sm: "100px",
+
+            md: "700px",
+
+            lg: "1100px",
+          },
+        },
+      };
+    </script>
+    <title>User</title>
+  </head>
+  <body>
+    <div class="bg-gray-300 md:h-screen">
+      <div class="bg-white text-center p-3 mx-3 mt-0 mb-[1%] h-[10%]">
+        <h1 class="text-3xl font-bold" id="headername"></h1>
+      </div>
+      <div class="md:grid grid-cols-9 h-[87%]">
+        <div class="col-span-2 flex flex-col p-6 space-y-6">
+          <button
+            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            onclick="showSection('home')"
+          >
+            Home
+          </button>
+          <button
+            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            onclick="showSection('profile')"
+          >
+            Profile
+          </button>
+          <button
+            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            onclick="showSection('points')"
+          >
+            Points
+          </button>
+          <button
+            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            onclick="showSection('tasks')"
+          >
+            Task
+          </button>
+          <button
+            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            onclick="handleLogout()"
+          >
+            Logout
+          </button>
+        </div>
+        <div
+          class="p-3 col-span-7 bg-white flex flex-col items-center space-y-8 h-full overflow-y-scroll"
+        >
+          <!-- View in Detail -->
+          <div
+            id="view-in-detail"
+            class="section p-3 h-full w-full bg-gray-300 border flex flex-col overflow-hidden shadow rounded-lg"
+            style="display: none"
+          >
+            <div
+              id="app-details"
+              class="flex h-1/4 w-full justify-between"
+            ></div>
+            <div
+              id="dragdrop"
+              class="flex flex-col items-center justify-center bg-white h-3/4"
+            >
+              <button
+                id="fileInput"
+                type="button"
+                class="w-1/4 px-2 py-1 md:px-5 md:py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded focus:outline-none focus:shadow-outline"
+              >
+                Select Files
+              </button>
+              <h2>or Drop your files here</h2>
+            </div>
+          </div>
+
+          <!-- Home -->
+          <div
+            id="home"
+            class="section w-full flex flex-col items-center"
+          ></div>
+          <!-- Profile -->
+          <div
+            id="profile"
+            style="display: none"
+            class="section flex flex row w-full md:w-[80%]"
+          ></div>
+          <!-- Points -->
+          <div
+            id="points"
+            style="display: none"
+            class="section flex flex row w-full md:w-[80%]"
+          ></div>
+          <!-- Tasks -->
+          <div
+            id="tasks"
+            style="display: none"
+            class="section w-full flex flex-col items-center"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/fetch.js"></script>
+  <script src="./js/user.js"></script>
+</html>
