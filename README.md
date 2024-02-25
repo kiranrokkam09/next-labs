@@ -97,6 +97,8 @@ The web app consists of two components: admin-facing and user-facing.
   - Admin User Credentials for deployed app are
   - Username or email : Admin
   - Password : Admin
+### VideoLink
+  - App Working [Video Link](https://www.dropbox.com/scl/fi/pkgs5mn7fu369fj4jr6g8/Next-labs-task.mp4?rlkey=kbq6y2ve856kyusb86omxix30&dl=0)
 ## Installation and Setup
 
 To run the project locally, please follow these steps:
