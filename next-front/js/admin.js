@@ -6,7 +6,7 @@
 
   if (!token) {
     // Redirect the user to the login page if not logged in
-    window.location.href = "/next-front/index.html";
+    window.location.href = "/index.html";
   }
 })();
 
@@ -24,20 +24,33 @@ const submitbutton = document.getElementById("submit");
 homebutton.addEventListener("click", () => {
   home.style.display = "flex";
   addapps.style.display = "None";
+  changeAllButtons();
+  homebutton.style.backgroundColor = "rgb(168, 85, 247)";
+  homebutton.style.color = "white";
 });
 
 addappbutton.addEventListener("click", () => {
   home.style.display = "None";
   addapps.style.display = "Block";
+  changeAllButtons();
+  addappbutton.style.backgroundColor = "rgb(168, 85, 247)";
+  addappbutton.style.color = "white";
 });
 
+function changeAllButtons() {
+  var buttons = document.querySelectorAll(".btn");
+  buttons.forEach(function (button) {
+    button.style.backgroundColor = "white";
+    button.style.color = "rgb(168, 85, 247)";
+  });
+}
 // for Getting the all the apps
 
 const adminfetchapps = (async () => {
   const data = await getapps();
   const apps = data.map(
     (app) => `
-  <div class="p-2 m-2 bg-gray-300 border flex flex-row w-full md:w-[80%] overflow-hidden shadow rounded-lg">
+  <div class="p-2 m-2 bg-gray-300 border flex flex-row w-full md:w-[80%] overflow-hidden shadow rounded-lg capitalize">
     <div class="min-w-[75px] max-w-[120px] basis-1/5 rounded">
       <img src="${url}${app.image}" alt="" />
     </div>
@@ -137,4 +150,5 @@ form.addEventListener("submit", async (event) => {
   formData.append("points", addpointsButton.value);
   await createapp(formData);
   alert("App Created!");
+  window.location.href = "/index.html";
 });

@@ -22,36 +22,40 @@
   <body>
     <div class="bg-gray-300 md:h-screen">
       <div class="bg-white text-center p-3 mx-3 mt-0 mb-[1%] h-[10%]">
-        <h1 class="text-3xl font-bold" id="headername"></h1>
+        <h1 class="text-3xl font-bold capitalize" id="headername"></h1>
       </div>
       <div class="md:grid grid-cols-9 h-[87%]">
         <div class="col-span-2 flex flex-col p-6 space-y-6">
           <button
-            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            class="btn bg-purple-500 text-white border border-purple-500 p-2 overflow-hidden shadow rounded-lg hover:bg-purple-500 hover:text-white"
+            id="homebtn"
             onclick="showSection('home')"
           >
             Home
           </button>
           <button
-            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            class="btn bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg hover:bg-purple-500 hover:text-white"
+            id="profilebtn"
             onclick="showSection('profile')"
           >
             Profile
           </button>
           <button
-            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            class="btn bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg hover:bg-purple-500 hover:text-white"
+            id="pointsbtn"
             onclick="showSection('points')"
           >
             Points
           </button>
           <button
-            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
-            onclick="showSection('tasks')"
+            class="btn bg-white text-purple-500 hover:bg-purple-500 hover:text-white p-2 border border-purple-500 overflow-hidden shadow rounded-lg"
+            id="taskbtn"
+            onclick="showSection('task')"
           >
             Task
           </button>
           <button
-            class="bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg"
+            class="btn bg-white text-purple-500 border border-purple-500 p-2 overflow-hidden shadow rounded-lg hover:bg-purple-500 hover:text-white"
             onclick="handleLogout()"
           >
             Logout
@@ -94,17 +98,17 @@
           <div
             id="profile"
             style="display: none"
-            class="section flex flex row w-full md:w-[80%]"
+            class="section flex flex-row justify-center items-center md:w-[80%]"
           ></div>
           <!-- Points -->
           <div
             id="points"
             style="display: none"
-            class="section flex flex row w-full md:w-[80%]"
+            class="section flex flex-row justify-center items-center w-full md:w-[80%]"
           ></div>
           <!-- Tasks -->
           <div
-            id="tasks"
+            id="task"
             style="display: none"
             class="section w-full flex flex-col items-center"
           ></div>

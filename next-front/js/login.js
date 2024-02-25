@@ -16,9 +16,9 @@ loginform.addEventListener("submit", async (event) => {
   // Check if the user is an admin
   if (data["isadmin"] === true) {
     // Redirect to admin page
-    window.location.href = "/next-front/admin.html";
+    window.location.href = "/admin.html";
   } else {
     // Redirect to user page
-    window.location.href = "/next-front/user.html";
+    window.location.href = "/user.html";
   }
 });

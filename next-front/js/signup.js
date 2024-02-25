@@ -9,4 +9,5 @@ signupform.addEventListener("submit", async (event) => {
   formData.append("username", signupform.querySelector("#email").value);
   await signup(formData);
   alert("User Created!");
+  window.location.href = "/index.html";
 });

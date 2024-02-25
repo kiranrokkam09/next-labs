@@ -30,7 +30,7 @@ const signup = async (formdata) => {
     console.error(
       `HTTP error! Status: ${response.status}, Error: ${errorText}`
     );
-    alert(errorText);
+    alert("User Already Exists");
   }
 
   const data = await response.json();
@@ -48,7 +48,7 @@ const login = async (formdata) => {
     console.error(
       `HTTP error! Status: ${response.status}, Error: ${errorText}`
     );
-    alert("Invalid Username or Password");
+    alert("Invalid Email or Password");
   }
   const data = await response.json();
   return data;
@@ -156,7 +156,7 @@ const handleLogout = () => {
   sessionStorage.removeItem("token");
 
   // Redirect the user to the login page
-  window.location.href = "/next-front/index.html";
+  window.location.href = "/index.html";
 };
 
 // Get single app details
@@ -199,7 +199,7 @@ const assignapp = async (formdata) => {
       console.error(
         `HTTP error! Status: ${response.status}, Error: ${errorText}`
       );
-      alert(errorText);
+      alert("App Already Assigned");
       //   throw new Error(`HTTP error! Status: ${response.status}`);
     }
 

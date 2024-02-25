@@ -6,7 +6,7 @@
 
   if (!token) {
     // Redirect the user to the login page if not logged in
-    window.location.href = "/next-front/index.html";
+    window.location.href = "/index.html";
   }
 })();
 
@@ -17,6 +17,10 @@ function showSection(sectionId) {
 
   // Show the selected section
   document.getElementById(sectionId).style.display = "flex";
+  changeAllButtons();
+  const button = document.getElementById(sectionId + "btn");
+  button.style.backgroundColor = "rgb(168, 85, 247)";
+  button.style.color = "white";
   console.log(document.getElementById(sectionId));
 }
 
@@ -28,11 +32,19 @@ function hideAllSections() {
   });
 }
 
+function changeAllButtons() {
+  var buttons = document.querySelectorAll(".btn");
+  buttons.forEach(function (button) {
+    button.style.backgroundColor = "white";
+    button.style.color = "rgb(168, 85, 247)";
+  });
+}
+
 // Sections
 const home = document.querySelector("#home");
 const profile = document.querySelector("#profile");
 const points = document.querySelector("#points");
-const tasks = document.querySelector("#tasks");
+const tasks = document.querySelector("#task");
 const detail = document.querySelector("#view-in-detail");
 
 // Header Name
@@ -52,7 +64,7 @@ const fetchapps = (async () => {
     </div>
     <div class="flex basis-3/4 sm:ml-3 md:ml-10 justify-left items-center">
       <div>
-        <h1 class="font-bold text-3xl">${app.name}</h1>
+        <h1 class="font-bold text-3xl capitalize">${app.name}</h1>
         <a class="underline text-purple-500 view-in-detail" onclick="viewindetail(event, ${app.id})" href="">View in Detail</a>
       </div>
     </div>
@@ -69,96 +81,73 @@ const fetchapps = (async () => {
 })();
 
 // Adding data to profile from Session Storage
-profile.innerHTML = `<div class="bg-gray-300 overflow-hidden shadow rounded-lg border">
-                        <div class="px-4 py-5 sm:px-6">
-                          <h3 class="text-lg leading-6 font-medium text-gray-900">
-                            User Profile
-                          </h3>
-                        </div>
-                        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-                          <dl class="sm:divide-y sm:divide-gray-200">
-                            <div
-                              class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                            >
-                              <dt class="text-sm font-medium text-gray-500">FirstName</dt>
-                              <dd
-                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                              >
-                                ${sessionStorage.getItem("firstname")}
-                              </dd>
-                            </div>
-                            <div
-                              class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                            >
-                              <dt class="text-sm font-medium text-gray-500">LastName</dt>
-                              <dd
-                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                              >
-                              ${sessionStorage.getItem("lastname")}
-                              </dd>
-                            </div>
-                            <div
-                              class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                            >
-                              <dt class="text-sm font-medium text-gray-500">UserName</dt>
-                              <dd
-                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                              >
-                              ${sessionStorage.getItem("username")}
-                              </dd>
-                            </div>
-                            <div
-                              class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                            >
-                              <dt class="text-sm font-medium text-gray-500">Email</dt>
-                              <dd
-                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                              >
-                              ${sessionStorage.getItem("email")}
-                              </dd>
-                            </div>
-                          </dl>
-                        </div>
-                        </div>`;
+profile.innerHTML = `<div class="bg-gray-300 overflow-hidden shadow rounded-lg border flex flex-col items-center justify-center">
+<div class="px-6 py-5 sm:px-6">
+  <h3 class="text-xl leading-6 font-medium text-gray-900 flex items-center justify-center">
+    User Profile
+  </h3>
+</div>
+<div class="border-t border-gray-200 px-6 py-5">
+  <dl class="divide-y divide-gray-200">
+    <div class="py-5 md:py-4 lg:py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <dt class="text-lg md:text-base lg:text-lg font-medium text-gray-900">First Name</dt>
+      <dd class="mt-1 text-lg md:text-base lg:text-lg text-gray-900 capitalize col-span-1 md:col-span-2">
+        ${sessionStorage.getItem("firstname")}
+      </dd>
+    </div>
+    <div class="py-5 md:py-4 lg:py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <dt class="text-lg md:text-base lg:text-lg font-medium text-gray-900">Last Name</dt>
+      <dd class="mt-1 text-lg md:text-base lg:text-lg text-gray-900 sm:mt-0 md:col-span-2 capitalize">
+        ${sessionStorage.getItem("lastname")}
+      </dd>
+    </div>
+    <div class="py-5 md:py-4 lg:py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <dt class="text-lg md:text-base lg:text-lg font-medium text-gray-900">User Name</dt>
+      <dd class="mt-1 text-lg md:text-base lg:text-lg text-gray-900 sm:mt-0 md:col-span-2">
+        ${sessionStorage.getItem("username")}
+      </dd>
+    </div>
+    <div class="py-5 md:py-4 lg:py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <dt class="text-lg md:text-base lg:text-lg font-medium text-gray-900">Email</dt>
+      <dd class="mt-1 text-lg md:text-base lg:text-lg text-gray-900 sm:mt-0 md:col-span-2">
+        ${sessionStorage.getItem("email")}
+      </dd>
+    </div>
+  </dl>
+</div>
+</div>
+`;
 
 // Points Page
 const fetchpoints = (async () => {
   const data = await getpoints();
-  points.innerHTML = `<div class="bg-gray-300 overflow-hidden shadow rounded-lg border">
-                      <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
-                          User Points
-                        </h3>
-                      </div>
-                      <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-                        <dl class="sm:divide-y sm:divide-gray-200">
-                          <div
-                            class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                          >
-                            <dt class="text-sm font-medium text-gray-500">
-                              Total Points
-                            </dt>
-                            <dd
-                              class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                            >
-                              ${data["points"]}
-                            </dd>
-                          </div>
-                          <div
-                            class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-                          >
-                            <dt class="text-sm font-medium text-gray-500">
-                              Total Apps
-                            </dt>
-                            <dd
-                              class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                            >
-                              ${data["count"]}
-                            </dd>
-                          </div>
-                        </dl>
-                      </div>
-                    </div>`;
+  points.innerHTML = `<div class="bg-gray-300 overflow-hidden shadow rounded-lg border p-4 flex flex-col items-center justify-center">
+  <div class="px-6 py-5 sm:px-6">
+    <h3 class="text-xl leading-6 font-medium text-gray-900 flex items-center justify-center">
+      User Points
+    </h3>
+  </div>
+  <div class="border-t border-gray-200 px-6 py-5 sm:p-0">
+    <dl class="divide-y divide-gray-200">
+      <div class="py-5 md:py-4 lg:py-5 grid grid-cols-1 md:grid-cols-3 gap-4 items-center justify-items-start md:justify-items-center">
+        <dt class="text-lg md:text-base lg:text-lg font-medium text-gray-900">
+          Total Points
+        </dt>
+        <dd class="mt-1 text-lg md:text-base lg:text-lg text-gray-900 capitalize md:col-span-2 flex justify-center md:justify-end md:pr-6">
+          ${data["points"]}
+        </dd>
+      </div>
+      <div class="py-5 md:py-4 lg:py-5 grid grid-cols-1 md:grid-cols-3 gap-4 items-center justify-items-start md:justify-items-center">
+        <dt class="text-lg md:text-base lg:text-lg font-medium text-gray-900">
+          Total Apps
+        </dt>
+        <dd class="mt-1 text-lg md:text-base lg:text-lg text-gray-900 sm:mt-0 md:col-span-2 flex justify-center md:justify-end md:pr-6">
+          ${data["count"]}
+        </dd>
+      </div>
+    </dl>
+  </div>
+`;
 })();
 
 // Tasks Page
@@ -172,8 +161,8 @@ const fetchtasks = (async () => {
     </div>
     <div class="flex basis-3/4 sm:ml-3 md:ml-10 justify-left items-center">
       <div>
-        <h1 class="font-bold text-3xl">${task.name}</h1>
-        <button class="bg-green-500 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline">completed</button>
+        <h1 class="font-bold text-3xl capitalize">${task.name}</h1>
+        <button class="bg-green-500 text-white font-bold mt-2 px-1 rounded-lg focus:outline-none focus:shadow-outline">completed</button>
       </div>
     </div>
     <div class="flex basis-1/5 sm:mr-3 md:mr-10 items-center justify-center">
@@ -200,7 +189,7 @@ const viewindetail = async (event, id) => {
   const appdetail = document.querySelector("#app-details");
   const appdetails = `<div
       id="detail-image"
-      class="flex-1 min-w-[60px] max-w-[150px] rounded"
+      class="flex-1 min-w-[60px] max-w-[100px] rounded"
     >
       <img src="${url}${app.image}" alt="img" />
     </div>
@@ -211,7 +200,7 @@ const viewindetail = async (event, id) => {
     >
       <div>
         <h1
-          class="font-bold text-3xl sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl"
+          class="font-bold text-3xl sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl capitalize"
         >
         ${app.name}
         </h1>
@@ -268,4 +257,5 @@ async function handleFiles(files) {
   formData.append("screenshot", files[0]);
   await assignapp(formData);
   alert("Points added");
+  window.location.href = "/index.html";
 }
