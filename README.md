@@ -92,7 +92,11 @@ The web app consists of two components: admin-facing and user-facing.
 
 - The application Frontend has been deployed to [deployment_link](http://next-front.s3-website.ap-south-1.amazonaws.com/user.html).
 - The application Backend has been deployed to [deployment_link](http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/).
-
+  
+  ### Note:
+  - Admin User Credentials for deployed app are
+  - Username or email : Admin
+  - Password : Admin
 ## Installation and Setup
 
 To run the project locally, please follow these steps:
@@ -125,10 +129,15 @@ To run the project locally, please follow these steps:
     ```
    python manage.py migrate
     ```
-8. Start the development server:
+8. Create admin user fo the app:
+     ```
+     python manage.py createsuperuser
+     ```
+9. Start the development server:
     ```
    python manage.py runserver
     ```
+  
 ## Problem Set 3 - Additional Questions
 
 ### Task
