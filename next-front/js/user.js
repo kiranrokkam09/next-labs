@@ -257,5 +257,5 @@ async function handleFiles(files) {
   formData.append("screenshot", files[0]);
   await assignapp(formData);
   alert("Points added");
-  window.location.href = "/index.html";
+  window.location.href = "/user.html";
 }

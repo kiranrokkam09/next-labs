@@ -150,5 +150,5 @@ form.addEventListener("submit", async (event) => {
   formData.append("points", addpointsButton.value);
   await createapp(formData);
   alert("App Created!");
-  window.location.href = "/index.html";
+  window.location.href = "/admin.html";
 });
