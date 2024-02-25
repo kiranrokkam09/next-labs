@@ -47,74 +47,88 @@ The web app consists of two components: admin-facing and user-facing.
 
 ### API Documentation
 
-## Sign Up:
+#### Sign Up:
 
 - Endpoint: POST /next/signup
 - Description: Sign up a new user.
   
-## Login:
+#### Login:
 
 - Endpoint: POST /next/login
 - Description: Login with existing user credentials.
   
-## Create App:
+#### Create App:
 
 - Endpoint: POST /next/createapp
 - Description: Create a new application.
   
-## Get Apps:
+#### Get Apps:
 
 - Endpoint: GET /next/getapps
 - Description: Get a list of all applications.
   
-## Assign App:
+#### Assign App:
 
 - Endpoint: POST /next/assignapp
 - Description: Assign an application to a user.
   
-## Tasks:
+#### Tasks:
 
 - Endpoint: GET /next/tasks
 - Description: Get a list of tasks.
   
-## Points:
+#### Points:
 
 - Endpoint: GET /next/points
 - Description: Get user's points information.
 
-## Repository Structure
+### Repository Structure
 
 - next-front/ # Frontend for the problem statement
 - next-back/ # Backend for the problem statement
 - next-back/requirements.txt # Required packages and dependencies
 
-## Deployment
+### Deployment
 
-- The application Frontend has been deployed to [deployment_link].
-- The application Backend has been deployed to [deployment_link].
+- The application Frontend has been deployed to [deployment_link](http://next-front.s3-website.ap-south-1.amazonaws.com/user.html).
+- The application Backend has been deployed to [deployment_link](http://ec2-13-60-21-86.eu-north-1.compute.amazonaws.com/).
 
 ## Installation and Setup
 
 To run the project locally, please follow these steps:
 
 1. Clone the repository:
-
-   git clone 
-
-2. Install the required dependencies:
-
+    ```
+   git clone https://github.com/kiranrokkam09/next-labs.git
+    ```
+2. Move to the next-back directory where the backend is located:
+   ```
+   cd next-back
+   ```
+3. Create Virtual Environment:
+   ```
+   python -m virtualenv venv
+   ```
+4. Activate the Virtual Environment:
+   ```
+   venv/scripts/activate
+   ```
+5. Install the required dependencies:
+    ```
    pip install -r requirements.txt
-
-3. Configure the database settings in `settings.py`.
-
-4. Run the database migrations:
-
+    ```
+6. Create the database migrations:
+     ```
+     python manage.py makemigrations
+     ```
+7. Run the database migrations:
+    ```
    python manage.py migrate
-
-5. Start the development server:
-
+    ```
+8. Start the development server:
+    ```
    python manage.py runserver
-
+    ```
 ## Problem Set 3 - Additional Questions
 
 ### Task
