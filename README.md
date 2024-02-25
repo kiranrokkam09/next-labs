@@ -47,15 +47,51 @@ The web app consists of two components: admin-facing and user-facing.
 
 ### API Documentation
 
-## Deployment
+## Sign Up:
 
-The application has been deployed to [deployment_link].
+- Endpoint: POST /next/signup
+- Description: Sign up a new user.
+  
+## Login:
+
+- Endpoint: POST /next/login
+- Description: Login with existing user credentials.
+  
+## Create App:
+
+- Endpoint: POST /next/createapp
+- Description: Create a new application.
+  
+## Get Apps:
+
+- Endpoint: GET /next/getapps
+- Description: Get a list of all applications.
+  
+## Assign App:
+
+- Endpoint: POST /next/assignapp
+- Description: Assign an application to a user.
+  
+## Tasks:
+
+- Endpoint: GET /next/tasks
+- Description: Get a list of tasks.
+  
+## Points:
+
+- Endpoint: GET /next/points
+- Description: Get user's points information.
 
 ## Repository Structure
 
-> problem_set_2/ # Solution for Problem Set 2
-> README.md # Documentation and submission details
-> requirements.txt # Required packages and dependencies
+- next-front/ # Frontend for the problem statement
+- next-back/ # Backend for the problem statement
+- next-back/requirements.txt # Required packages and dependencies
+
+## Deployment
+
+- The application Frontend has been deployed to [deployment_link].
+- The application Backend has been deployed to [deployment_link].
 
 ## Installation and Setup
 
@@ -63,7 +99,7 @@ To run the project locally, please follow these steps:
 
 1. Clone the repository:
 
-   git clone [repository_url]
+   git clone 
 
 2. Install the required dependencies:
 
